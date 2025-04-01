@@ -6,6 +6,19 @@
     --ligthcoral: #fafa;
     --blanco: #fff;
     --negro: #000;
+    --beigefondo: #eef0df;
+    --pinkcaro: #ffc0cb;
+    --Tistle: #d8bfd8;
+    --grisclaro: #adb8bb;
+    --azulcamarada: #054F77;
+    --Rosablanco: #fffafc;
+    --Rosapalo: #fef2f8;
+    --Rosaclarito: #fedef2;
+    --melonrosa: #fdc9e3;
+    
+
+
+    
 
     --fuentePrincipal: 'Staatliches', cursive;
 }
@@ -13,36 +26,43 @@
 html { /*snipet un Box-sizing para ajustar medidas "paul irish"*/
     html {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
         font-size: 62.5%;
       }
       *, *:before, *:after {
         box-sizing: inherit;
+    
       }
 }
 /*globales*/
 body {
-    background-color: var(--primario);
+    background-color: var(--beigefondo);
     font-size: 1.6rem;
     line-height: 1.5;/*base de la fuente*/    
 }
 p{/*parrfos*/
     font-family: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--blanco);
+    color: var(--negro);
 }
 a {
     text-decoration: none;
 }
 img {
     max-width: 100%;
+    display: block;/*añadido martes quitar*/
 }
 .conternedor {
-    max-width: 120rem;
+    max-width: 1200px;
     margin: 0 auto;
+    padding:0 2rem;/*añadido verificar si se queda*/
+    width: 90%;/*añadido quitar*/
+
 }
 h1, h2, h3 {
     text-align: center;
-    color: var(--secundario);
+    color: var(--negro);
     font-family: var(--fuentePrincipal);
 }
 h1 {
@@ -58,4 +78,159 @@ h3 {
 .header {
     display: flex;
     justify-content: center;
+
 }
+
+.header__logo {
+    margin: 3rem 0;
+}
+/*Footer*/
+.footer {
+    background-color: var(--pinkcaro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+
+}
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 2.2rem;
+
+}
+/**navegacion*/
+.navegacion {
+    background-color: var(--blanco);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.navegacion__enlace {/*elemento*/
+    font-family: var(--fuentePrincipal);
+    color: var(--negro);
+    font-size: 3rem;
+    margin-right: 2rem;
+}
+                                 
+.navegacion__enlace--activo,/*modificador*/
+.navegacion__enlace:hover {
+    color: var(--negro);
+}
+
+/**Grid*/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    /*justify-content: center;/*centra el grid en el eje horizontal*/
+    /*align-items: center;/*centra en el eje vertical si es necesario*/
+    /*margin: 0 auto;/*centra el grid*/
+    margin: 0 auto; 
+
+}
+@media (min-width: 768px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(250px, 1fr));/*para que quedara centrada cambie la especificacion de 250 ,px )*/
+        gap: 2rem;/*quitar lunes*/
+        justify-content: center;/*quitar lunes*/
+        margin: 2rem auto;/*quitar lunes*/
+    }
+}
+/**productos*/
+.producto {
+    background-color: var(--pinkcaro);
+    padding: 1.5rem;
+    display: flex;
+    text-align: center;/*clau*/
+    flex-direction: column;/*clau*/
+    align-items: center;/*clau**/
+    justify-content: space-between;/*clau*/
+    height: 100%;/*clau*/
+    border-radius: 8px; /*añadido lunes quitar*/
+    transition: transform 0.3s ease-in-out;
+
+}
+.producto:hover {
+    transform: scale(1.05);/*añadido martes quitar*/
+}
+.producto__imagen {
+    width: 100%;
+    height: 200px;/*clau height mantiene la proporcion*/
+    object-fit: cover;/*clau, evita que se deformen*/
+    border-radius: 8px;/*añadido martes quitar*/
+}
+.producto__informacion {
+
+}
+.producto__nombre {
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-family: var(--fuentePrincipal);
+}
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--blanco);
+    font-family: var(--fuentePrincipal);
+}
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+    width: 100%;/*quitar luns */
+
+}
+.contenedor { /*agregue por que no jalaba el grid con este se centro*/
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;/*centra todo*/
+}
+/**Grafico de   camisas**/
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;/*quitar lunes*/
+
+}
+.grafico--camisas {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    background-image: url(../index.html/img/grafico1.png);
+}
+.grafico--node {
+    background-image: url(../index.html/img/grafico2.png);
+}
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+        
+    
+    }
+
+}
+
+/*Responsive*/
+@media (min-width: 768px) {
+    .grid{
+        grid-template-columns: repeat(3,minmax(250px, 1fr));
+    }
+}
+@media (min-width: 480px) {
+    .grid{
+        grid-template-columns: repeat(2,minmax(150px, 1fr));
+    }
+    .producto {
+        padding: 1rem;
+    }
+    .producto__nombre {
+        font-size: 1.6rem;
+    }
+    .producto__precio {
+        font-size: 2rem;
+    }
+}
+
