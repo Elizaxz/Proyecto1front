@@ -120,8 +120,11 @@ h3 {
 /**Grid*/
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(25rem,1fr));
     column-gap: 2rem;
+    row-gap: 8rem;
+    padding: 2rem;
+    align-items: start;/*asegura que as argeas comiencen en e mismo nive*/
     /*justify-content: center;/*centra el grid en el eje horizontal*/
     /*align-items: center;/*centra en el eje vertical si es necesario*/
     /*margin: 0 auto;/*centra el grid*/
@@ -131,8 +134,10 @@ h3 {
 @media (min-width: 768px) {
     .grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(250px, 1fr));/*para que quedara centrada cambie la especificacion de 250 ,px )*/
-        gap: 2rem;/*quitar lunes*/
+        grid-template-columns: repeat(3, minmax(25rem, 1fr));/*para que quedara centrada cambie la especificacion de 250 ,px )*/
+        column-gap: 2rem;/*quitar lunes*/
+         align-items: start;
+        padding: 2rem;
         justify-content: center;/*quitar lunes*/
         margin: 2rem auto;/*quitar lunes*/
     }
@@ -142,13 +147,14 @@ h3 {
     background-color: var(--pinkcaro);
     padding: 1.5rem;
     display: flex;
-    text-align: center;/*clau*/
     flex-direction: column;/*clau*/
     align-items: center;/*clau**/
+    text-align: center;/*clau*/
     justify-content: space-between;/*clau*/
-    height: 100%;/*clau*/
-    border-radius: 8px; /*añadido lunes quitar*/
+    border-radius: 1rem; /*añadido lunes quitar*/
+    max-width: 25rem; /* Limita el ancho para mantener uniformidad */
     transition: transform 0.3s ease-in-out;
+    height: auto;/* Permite ajuste dinámico sin romper la cuadrícula */
 
 }
 .producto:hover {
@@ -156,15 +162,16 @@ h3 {
 }
 .producto__imagen {
     width: 100%;
-    height: 200px;/*clau height mantiene la proporcion*/
+    height: 20rem;/*clau height mantiene la proporcion*/
     object-fit: cover;/*clau, evita que se deformen*/
-    border-radius: 8px;/*añadido martes quitar*/
+    border-radius: 0.8rem;/*añadido martes quitar*/
 }
 .producto__informacion {
 
 }
 .producto__nombre {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
     margin-top: 1rem;
     font-family: var(--fuentePrincipal);
 }
@@ -187,7 +194,7 @@ h3 {
     max-width: 1200px;
     margin: 0 auto;/*centra todo*/
 }
-/**Grafico de   camisas**/
+/**Grafico de   cuadros**/
 .grafico {
     min-height: 30rem;
     background-repeat: no-repeat;
@@ -221,7 +228,7 @@ h3 {
 }
 @media (min-width: 480px) {
     .grid{
-        grid-template-columns: repeat(2,minmax(150px, 1fr));
+        grid-template-columns: repeat(3,minmax(150px, 1fr));
     }
     .producto {
         padding: 1rem;
@@ -233,4 +240,51 @@ h3 {
         font-size: 2rem;
     }
 }
+/*nosotros*/
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 2rem;
+    }
 
+}
+.nosotros__contenido {
+
+}
+.nosotros__imagen {
+    grid-row: 1 / 2;
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 / 3;
+    }
+}
+/*nosotros*/
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+}
+
+
+.bloque {
+    text-align: center;
+}
+.bloque__imagen {
+    width: 100%;
+    
+}
+.bloque__titulo {
+    margin: 0;
+}
